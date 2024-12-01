@@ -1,0 +1,136 @@
+.first-box {
+  background-image: url("/equal-vision-header.webp");
+  background-size: cover;
+  background-position: center center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.second-box {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .second-box {
+    border-radius: 10px;
+  }
+}
+
+.custom-btn {
+  background-color: #373735;
+}
+
+.custom-btn:hover {
+  background-color: #464742;
+}
+
+.header-image {
+  background-size: cover;
+}
+
+.final-hr {
+  color: white;
+}
+
+.ev-sidebar-logo {
+  width: 65%;
+}
+
+.img-table {
+  width: 100%;
+  object-fit: cover;
+}
+
+.product-table {
+  vertical-align: middle;
+}
+
+table {
+  counter-reset: section;
+}
+
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}
+
+table,
+tbody,
+tr,
+th,
+td {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.glass-box {
+  background: rgba(0, 0, 0, 0.04);
+  backdrop-filter: saturate(120%) blur(5px);
+}
+
+.ev-404-logo {
+  width: 30%;
+}
+
+.lineChart {
+  height: 300px !important;
+  width: 100% !important;
+}
+
+.pieChart {
+  height: 300px !important;
+  width: 300px !important;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.button {
+  width: 90px;
+  height: 90px;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 0px;
+  cursor: pointer;
+  outline: 0px;
+  padding: 0 2px;
+  font-weight: 600;
+  font-size: 18px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.backdrop {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: rgb(36, 33, 228);
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  border-radius: 15px;
+  transform: translateX(-50%) translateY(-50%);
+  transition: all ease-in-out 0.5s;
+}
+
+.button:hover + .backdrop {
+  top: 48%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transform: rotate(15deg) translateX(-50%) translateY(-50%);
+}
+
+.button:active,
+.button:active + .backdrop {
+  box-shadow: none;
+}
+
+.tracklist-modal-image {
+  width: 100%;
+  object-fit: cover;
+}

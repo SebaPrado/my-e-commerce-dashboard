@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Jost&display=swap");
+
+body {
+  background-image: url("https://equalvision.com/cdn/shop/t/13/assets/BCK.jpg");
+  height: 100vh;
+  font-family: Jost;
+}
+
+#root {
+  height: 100%;
+}
