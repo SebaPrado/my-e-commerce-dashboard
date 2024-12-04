@@ -136,6 +136,8 @@ function ProductCreation() {
               </select>
             </div>
 
+      {/* =================             ↓↓↓    Subimos la imagen     ↓↓    ===========================          */}
+            
             <div className="mb-3">
               <label htmlFor="image" className="form-label">
                 Image
@@ -149,6 +151,8 @@ function ProductCreation() {
                 onChange={(e) => setImage(e.target.value)}
               />
             </div>
+
+      {/* =================            ↑↑      Subimos la imagen   ↑↑      ===========================          */}
 
             <div>
               <label className="form-label">Tracklist</label>
