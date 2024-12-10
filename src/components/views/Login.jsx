@@ -48,68 +48,69 @@ function Login() {
     }
   };
 
-  //!adminSlice.token ? (
-  return(
-  <>
-    <div className="vh-100 d-flex align-items-center">
-      <div className="container">
-        <div className="row g-0">
-          <div className="d-none d-md-block col-md-5 col-lg-7">
-            <div className="first-box h-100">
-              <div className="d-flex justify-content-center align-items-center h-100">
-                <img src="/equal-vision-logo.png" alt="" className="" />
+  return !adminSlice.token ? (
+    <>
+      <div className="vh-100 d-flex align-items-center">
+        <div className="container">
+          <div className="row g-0">
+            <div className="d-none d-md-block col-md-5 col-lg-7">
+              <div className="first-box h-100">
+                <div className="d-flex justify-content-center align-items-center h-100">
+                  <img src="/equal-vision-logo.png" alt="" className="" />
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-md-7 col-lg-5">
-            <div className="bg-white p-5 second-box ">
-              <div className="mb-4">
-                <h3>Admin Login</h3>
-              </div>
-              <div className="d-flex flex-column justify-content-around align-items-center">
-                <form className="w-100" onSubmit={handleSubmit}>
-                  <div className="input-group mb-5">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Email"
-                      value={email}
-                      onChange={handleEmail}
-                    />
-                  </div>
-                  <div className="input-group mb-5">
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Password"
-                      value={password}
-                      onChange={handlePassword}
-                    />
-                  </div>
-                  <button className="btn custom-btn mb-5 w-100 auth-btn text-white">
-                    Login
-                  </button>
-                </form>
+            <div className="col-md-7 col-lg-5">
+              <div className="bg-white p-5 second-box ">
+                <div className="mb-4">
+                  <h3>Admin Login</h3>
+                </div>
+                <div className="d-flex flex-column justify-content-around align-items-center">
+                  <form className="w-100" onSubmit={handleSubmit}>
+                    <div className="input-group mb-5">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Email"
+                        value={email}
+                        onChange={handleEmail}
+                      />
+                    </div>
+                    <div className="input-group mb-5">
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Password"
+                        value={password}
+                        onChange={handlePassword}
+                      />
+                    </div>
+                    <button className="btn custom-btn mb-5 w-100 auth-btn text-white">
+                      Login
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover={false}
+          theme="light"
+        />
       </div>
-      <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover={false}
-        theme="light"
-      />
-    </div>
-  </>);
-  // ) : ( <Navigate to="/" replace />);
+    </>
+  ) : (
+    <Navigate to="/" replace />
+  );
 }
 
 export default Login;
