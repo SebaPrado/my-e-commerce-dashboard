@@ -19,6 +19,10 @@ function OrderUpdate() {
     products: "",
   });
 
+  // ==============================================//
+
+  // ==============================================//
+
   useEffect(() => {
     const getOrder = async () => {
       try {
@@ -26,7 +30,7 @@ function OrderUpdate() {
           method: "GET",
           url: `${import.meta.env.VITE_API_URL}/orders/${orderId}`,
           headers: {
-            Authorization: "Bearer " + adminSlice.token,
+            Authorization: `Bearer ${adminSlice.token}`,
           },
         };
         const response = await axios(axiosConfig);
@@ -35,18 +39,20 @@ function OrderUpdate() {
           navigate("/");
         }
         setOrder({
-          ...order,
+          ...response.data, // Cambiado para usar directamente response.data
           status: response.data.status,
           paymentMethod: response.data.paymentMethod,
           products: response.data.products,
         });
       } catch (err) {
         console.log(err);
+        notify("Error al cargar la orden");
       }
     };
     getOrder();
-  }, []);
+  }, [orderId, adminSlice.token, navigate]); // Agregadas las dependencias
 
+  // Modificar el handleSubmit
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -54,18 +60,31 @@ function OrderUpdate() {
       const axiosConfig = {
         method: "PATCH",
         url: `${import.meta.env.VITE_API_URL}/orders/${orderId}`,
-        data: order,
+        data: {
+          status: order.status, // Solo enviamos los datos necesarios
+          paymentMethod: order.paymentMethod,
+        },
         headers: {
-          Authorization: "Bearer " + adminSlice.token,
+          Authorization: `Bearer ${adminSlice.token}`,
+          "Content-Type": "application/json",
         },
       };
+
       const response = await axios(axiosConfig);
-      notify(response.data.msg);
-      !response.data.constraint && navigate("/orders");
+
+      if (response.data) {
+        notify("Orden actualizada exitosamente");
+        navigate("/orders");
+      }
     } catch (err) {
       console.log(err);
+      notify("Error al actualizar la orden");
     }
   };
+
+  // ==============================================//
+
+  // ==============================================//
 
   return (
     <>
