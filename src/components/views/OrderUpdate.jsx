@@ -53,34 +53,7 @@ function OrderUpdate() {
   }, [orderId, adminSlice.token, navigate]); // Agregadas las dependencias
 
   // Modificar el handleSubmit
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const axiosConfig = {
-        method: "PATCH",
-        url: `${import.meta.env.VITE_API_URL}/orders/${orderId}`,
-        data: {
-          status: order.status, // Solo enviamos los datos necesarios
-          paymentMethod: order.paymentMethod,
-        },
-        headers: {
-          Authorization: `Bearer ${adminSlice.token}`,
-          "Content-Type": "application/json",
-        },
-      };
-
-      const response = await axios(axiosConfig);
-
-      if (response.data) {
-        notify("Orden actualizada exitosamente");
-        navigate("/orders");
-      }
-    } catch (err) {
-      console.log(err);
-      notify("Error al actualizar la orden");
-    }
-  };
+  v
 
   // ==============================================//
 

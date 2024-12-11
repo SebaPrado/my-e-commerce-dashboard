@@ -71,7 +71,7 @@ function Login() {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Email"
+                        placeholder="Email - try with 'admin1@ha.dev'  "
                         value={email}
                         onChange={handleEmail}
                       />
@@ -80,7 +80,7 @@ function Login() {
                       <input
                         type="password"
                         className="form-control"
-                        placeholder="Password"
+                        placeholder="Password - try with 'admin'"
                         value={password}
                         onChange={handlePassword}
                       />
